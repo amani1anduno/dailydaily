@@ -35,4 +35,7 @@ class wordsController extends Controller
     static function clear(){
         words::truncate();
     }
+    static function runnerUp(){
+        return words::orderBy("points","desc")->get()->first();
+    }
 }

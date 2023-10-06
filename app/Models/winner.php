@@ -9,7 +9,7 @@ class winner extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'contant',
+        'content',
         'points',
         'win_date',
 
