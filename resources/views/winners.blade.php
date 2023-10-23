@@ -1,8 +1,7 @@
-@extends('layout',['title'=>"previous winners"])
+@extends('layout',['title'=>"DailyDaily"])
 <x-navigation></x-navigation>
 
 @section("content")
-    
     <x-countdown></x-countdown>
     
     @if($errors->any())

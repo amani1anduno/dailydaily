@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\votedController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\wordsController;
 use App\Models\words;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +21,22 @@ Route::get('/', function () {
 });
 Route::post('/', function () {
     wordsController::create(request("content"));
+    
     return redirect('/');
 });
+Route::get('/winners', function () {
+    return view('winners');
+}
+);
 Route::get('/{id}', function (int $id) {
-    wordsController::add_point($id);
-    return redirect('/');
+    votedController::create();
+    if (votedController::canvote()){
+        wordsController::add_point($id);
+        votedController::vote();
+        return redirect('/');
+
+    }
+    else{
+        return Redirect::back()->withErrors(['msg' => 'sorry, you already used up your votes']);
+    }
 });

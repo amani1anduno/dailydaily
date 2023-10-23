@@ -7,7 +7,7 @@
       now.getFullYear(),
       now.getMonth(),
       now.getDate() + 1, // the next day, ...
-      22, 29, 00 // ...at 00:00:00 hours
+      0, 0, 00 // ...at 00:00:00 hours
   );
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -31,7 +31,7 @@
 
   // If the count down is finished, write some text
   if (hours==0&&minutes==0&&seconds==0 ) {
-    window.location = "https://www.youtube.com/watch?v=qMuc20T4AC8";
+    window.location = "/";
   }
 }, 1000);
 </script>

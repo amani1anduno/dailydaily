@@ -2,10 +2,10 @@
 
 namespace App\Console;
 
+use DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Http\Controllers\winnerController;
-use App\Http\Controllers\wordsController;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -19,9 +19,8 @@ class Kernel extends ConsoleKernel
         // })->daily();
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
-            winnerController::new_winner();
-            wordsController::clear();
-        })->daily();    
+        })->hourlyAt(23);
+        $schedule->command('app:pickwiner')->daily()->appendOutputTo("scheduler.log");
     }
 
     /**
