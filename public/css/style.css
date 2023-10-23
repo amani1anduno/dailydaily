@@ -105,6 +105,20 @@ p::first-letter{
     padding: 10px;
     margin-top: 20px;
 }
+.winner{
+    display: block;
+    min-width: 60px;
+    padding-inline: 10px;
+    padding-block: 5px;
+    margin-right: 4px;
+    color: #f0f8ff;
+    border: 3px solid aliceblue;
+    text-decoration: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: color .15s ease-in;
+    transition: background-color .15s ease-in;
+}
 @media (prefers-color-scheme: dark) {
     body{
         background-color: rgb(4, 2, 32);
@@ -141,5 +155,9 @@ p::first-letter{
     }
     .word .right{
         border-left: 1px solid cornflowerblue;
+    }
+    .winner{
+        color: rgb(100, 149, 237);
+        border-color: cornflowerblue;
     }
   }

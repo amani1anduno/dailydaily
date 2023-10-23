@@ -4,14 +4,8 @@
 @section("content")
     <x-countdown></x-countdown>
     
-    @if($errors->any())
-    <h2>{{$errors->first()}}</h2>
-    @else
-    <x-searchbar></x-searchbar>
-    @endif
-    
-    @foreach ($wordsList as $word)
-       <x-words :word="$word"></x-words>
+    @foreach ($winners as $winner)
+       <x-winner :word="$winner"></x-winner>
     @endforeach
     
 @endsection

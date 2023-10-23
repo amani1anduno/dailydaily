@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\votedController;
+use App\Models\winner;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\wordsController;
 use App\Models\words;
@@ -25,7 +26,7 @@ Route::post('/', function () {
     return redirect('/');
 });
 Route::get('/winners', function () {
-    return view('winners');
+    return view('winners',['winners'=>winner::all()->sortBy("created_at",descending:true)]);
 }
 );
 Route::get('/{id}', function (int $id) {
